@@ -1,0 +1,752 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'league sparten', sans-serif;
+     
+}
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+}
+h4{
+    font-size: 20px;
+    color: #222;
+}
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+p{
+    font-size: 16px;
+    margin: 15px 0 20px 0;
+    color: #465b52;
+}
+body{
+    width: 100%;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+.section-m1{
+    margin: 40px 0;
+}
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+button.white{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.2s;
+    color: #fff;
+}
+/* header start  */
+#nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E3E6F3;
+    padding: 20px 80px;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Adds soft shadow around the navbar.
+    horizontal | vertical | blur | color
+    0.3 means 30% black color show 
+   Use 0 0 for equal shadow on all sides. 
+   Avoid using -10px or 10px for horizontal shadow if navbar touches screen edge, 
+   as it may hide the shadow. */
+
+}
+#navbar{
+    /* background-color: blue; */
+     display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+}
+#navbar li{
+    list-style: none;
+    padding: 0px 20px;
+    
+    
+    
+}
+#navbar a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+    position: relative;
+}
+#navbar li a:hover{
+    color: #088178;
+}
+  
+#navbar li a.active{
+    color: #088178; 
+} 
+
+#navbar li a::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 70%;
+    background-color: #088178;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+    color: #088178;
+}
+#navbar li a:hover::after{
+    transform: scaleX(1);
+}
+#navbar li a.active::after{
+    /* color: #088178; */
+    transform: scaleX(1);
+}
+#mobile{
+    display: none;
+    align-items: center;
+}
+#close {
+    display: none;
+}
+/* ::before aur ::after CSS ke pseudo-elements hain jo kisi element ke start (before) ya end (after) mein 
+   extra cheez (jaise line, emoji, icon ya text) dikhane ke liye use hote hain 
+   bina HTML ko change kiye. Inko visible banane ke liye content: "" zaroori hota hai. */
+/* Syntax: selector::before / ::after { content: ""; /* styling */  
+/* Haan, ::before bhi underline ke liye use ho sakta hai —
+lekin usually ::after zyada use hota hai kyunki wo naturally end par hota hai.
+Agar bottom: 0; aur position: absolute; dogi, to dono ka same result ho sakta hai. */
+/* 
+::after ki madad se har navbar link ke neeche ek underline banayi gayi hai.
+Yeh line pehle chhupi hoti hai (scaleX(0)), aur hover ya click (active) par smoothly appear hoti hai (scaleX(1)).
+
+bottom: -5px; se line link ke thoda neeche dikhayi deti hai.
+transform-origin: left; se line left se start hoti hai.
+transition: transform; se line smoothly grow karti hai.
+*/
+/* 
+.active vs :active ka farq:
+
+1. .active:
+   - Ye ek custom class hoti hai jo hum HTML mein khud lagate hain.
+   - Jaise: <a class="active">Home</a>
+   - Iska use mostly navbar mein hota hai taake current page ka link highlight rahe.
+   - Jab tak class lagi rahe, effect dikhai deta hai.
+
+2. :active:
+   - Ye CSS ki built-in pseudo-class hoti hai.
+   - Sirf us moment kaam karti hai jab user kisi element ko click kar raha hota hai.
+   - Page reload hone ke baad iska effect khatam ho jata hai.
+
+Navbar ke liye hamesha .active class ka use karte hain taake permanent highlight mil sake.
+*/
+/* hero section or home page  */
+#hero{
+    background-image: url("img/hero4.png");
+    background-position: top 25% right 0;
+    
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+/* 
+background-position: top 25%;
+→ Image ka 25% upar ka part hide ho jata hai,
+   aur beech wala part container mein dikhai deta hai.
+→ Jitna zyada percent, utna image ka top part chhup jata hai.
+*/
+#hero h4{
+    padding-bottom: 15px;
+}
+#hero h1{
+    color: #088178;
+}
+#hero button{
+    background-image: url("img/button.png");
+    color: #088178;
+    padding: 14px 80px 14px 65px;
+     background-color: transparent; 
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/* shop page  */
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#feature .feature-box{
+      /* background-color: #465b52;   */
+    padding: 25px 15px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 20px 20px 34px rgb(0, 0, 0, 0.03);
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+     margin: 15px 0; 
+
+}
+#feature .feature-box:hover{
+    box-shadow: 10px 10px 54px rgb(70, 62, 221, 0.1);
+}
+#feature .feature-box img{
+    width: 100%; 
+    margin-bottom: 10px;
+}
+#feature .feature-box h6{
+    color: #088178;
+    line-height: 1;
+    border-radius: 3px;
+    padding: 9px 8px 6px 8px;
+    /* background-color: #fddde4; */
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+}
+#feature .fe-box1 h6{
+    background-color: #fddde4;
+}
+#feature .fe-box2 h6{
+    background-color: #cdebbc;
+}
+#feature .fe-box3 h6{
+    background-color: #d1e8f2;
+}
+#feature .fe-box4 h6{
+    background-color: #cdd4f8;
+}
+#feature .fe-box5 h6{
+    background-color: #f6dbf6;
+}
+#feature .fe-box6 h6{
+    background-color: #f1e866;
+}
+
+/* shirts section  */
+#feature-product {
+   text-align: center;
+}
+#feature-product .pro{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(0, 0, 0,0.02);
+     margin: 15px 0px ;
+     transition: 0.2s ease; 
+} 
+#feature-product .pro:hover{
+    box-shadow: 20px 20px 30px rgb(0, 0, 0,0.06);
+}
+#feature-product .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+#feature-product .pro .des{
+    text-align: start;
+    padding: 10px 0px ;
+    position: relative;
+}
+#feature-product .pro .des span{
+    color: #606063;
+    font-size: 12px;
+}
+#feature-product .pro .des h5{
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+#feature-product .pro .des .star i{
+    font-size: 12px;
+    color: rgba(233, 233, 3, 0.925)
+}
+#feature-product .pro .des h4{
+    padding-top: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+}
+#feature-product .pro .des .cart-box{
+    /* margin-top: 10px; */
+    width: 40px;
+    height: 40px;
+    background-color: #e8f6ea;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+   
+}
+
+
+.pro-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    align-items: center;
+    padding-top: 20px;
+}
+/* banner part  */
+#banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-image: url("./img/banner/b2.jpg");
+    background-position: center;
+    height: 40vh;
+    background-size: cover;
+    width: 100%;
+   
+   
+}
+#banner span{
+    color: #ef3636;
+}
+#banner h4{
+  color: #fff;
+  font-size: 16px;
+}
+#banner h2{
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 0;
+}
+#banner button:hover{
+    background-color: #088178;
+    color: #fff;
+}
+#sm-banner{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+     flex-wrap: wrap; 
+     gap: 10px;
+    
+    
+}
+/* next portion  */
+#sm-banner .banner-box{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+     background-image: url("./img/banner/b17.jpg"); 
+    background-position: center;
+    height: 50vh;
+    background-size: cover;
+    min-width: 48%; 
+    padding: 30px;
+    
+
+}
+#sm-banner .bannar-box2{
+    background-image: url("./img/banner/b10.jpg");
+}
+#sm-banner h4{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+#sm-banner h2{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+}
+#sm-banner span{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.banner-box:hover button{
+    background-color: #088178;
+    border: 1px solid #088178;
+}
+/* next portion  */
+#banner3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    padding: 0px 80px;
+    
+    /* background-color: rebeccapurple; */
+}
+.banner-box3{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+     background-image: url("./img/banner/b7.jpg"); 
+    background-position: center;
+     height: 30vh;
+     min-width: 30%;
+    background-size: cover;
+    /* min-height: 40%;  */
+    /* height: 30vh; */
+    /* min-width: 650px; / */
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+.ban2{
+    background-image: url("./img/banner/b4.jpg");
+}
+.ban3{
+    background-image: url("./img/banner/b18.jpg");
+}
+.banner-box3 h2{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+}
+.banner-box3 h3{
+    color: #ec544e;
+    font-size: 15px;
+    font-weight: 800;
+}
+#newsletter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-image: url("./img/banner/b14.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: #041e42;
+}
+#newsletter h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+#newsletter h2{
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0;
+}
+#newsletter span{
+    color: #ffbd27;
+}
+#newsletter input{
+    height: 3.125rem;
+    padding: 0  1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#newsletter button{
+    background-color: #088178;
+    white-space: nowrap;
+    color: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#newsletter .form{
+    width: 40%;
+    display: flex;
+}
+/* footer  */
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+
+}
+footer .col a{
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #222;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    /* justify-content: center; */
+}
+footer .logo{
+    margin-bottom: 30px;
+}
+footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    
+}
+footer .follow{
+    margin-top: 20px;
+}
+footer .follow i{
+    padding-right: 4px;
+    color: #465b52;
+    cursor: pointer;
+}
+footer .install .row img{
+    border: 1px solid #088178;
+    border-radius: 6px;
+    margin: 10px 0 15px 0;
+}
+footer .icon i:hover, footer a:hover{
+    color: #088178;
+}
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
+
+/* media queries  */
+@media (max-width :799px) {
+    .section-p1 {
+        padding: 40px 40px;
+    }
+    #navbar {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: flex-start;
+     position: fixed;
+     top: 0;
+     right: -300px;
+     padding: 80px 0 0 10px ;
+     height: 100vh;
+     width: 300px;
+     box-shadow: 0px 40px 60px rgba(0, 0, 0, 0.1);
+     background-color: #E3E6F3;
+     transition: 0.3s;
+    }
+    #navbar.active{
+        right: 0px;
+    }
+    #navbar li{
+        margin-bottom: 25px;
+    }
+    #mobile{
+        display: flex;
+        align-items: center;
+    }
+    #mobile i{
+        font-size:24px ;
+        padding-left:20px ;
+        color: #1a1a1a;
+    }
+    #close {
+        position: relative;
+        /* top: 30px;
+         left: 30px;  */
+        display: initial; 
+        font-size: 24px;
+        color: #222;
+        padding-left: 20px;
+        margin-top: -40px;
+        margin-bottom: 30px;
+        padding-top: 0px;  
+    }
+    #close i{
+        font-size: 24px;
+       
+    }
+
+    #close:hover{
+        color: #088178;
+    }
+    #shop-cart{
+        display: none;
+    }
+    /* hero section  */
+
+    #hero{
+        height: 70vh;
+        background-position: top 30% right 30%;
+        padding: 0px 80px;
+    }
+    #feature{
+         justify-content: center; 
+    }
+    #feature .feature-box {
+        margin: 15px 15px;
+    }
+    .pro-container {
+        justify-content: center;
+        
+    }
+    #feature-product .pro {
+        margin: 15px ;
+    }
+    #banner {
+        height: 25vh;
+       
+    }
+    #sm-banner .banner-box {
+        height: 30vh;
+        min-width: 100%;
+    }
+    #banner3 {
+        padding: 0px 40px;
+    }
+    .banner-box3 {
+        width: 28%;
+       
+    }
+    #newsletter .form {
+        width: 70%;
+        
+    }
+}
+/* 2nd media query */
+@media (max-width:499px) {
+    #nav-header {
+        padding: 10px 30px;
+    }
+    .section-p1 {
+        padding: 20px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h1 {
+        font-size: 38px;
+    }
+    #hero {
+        background-position: 55%;
+        /* Socho ek photo frame hai, aur usmein aik scenery ki image lagayi hai.
+
+Agar tum background-position: 50% likhti ho:
+→ Bilkul center se image dikh rahi hoti hai.
+
+Agar tum background-position: 55% karti ho:
+→ Tum image ko thoda left ko dhakel deti ho.
+→ Is se image ka right wala hissa zyada nazar aata hai. */
+        padding: 0px 20px;
+    }
+    #feature .feature-box {
+        width: 155px;
+        margin: 0px 0px 15px 0;
+    }
+    #feature {
+        justify-content: space-evenly;
+    }
+    #feature-product .pro {
+        width: 100%;
+    }
+    #banner {
+        height: 40vh;
+    }
+    #sm-banner .banner-box {
+        height: 40vh;
+    }
+    #sm-banner {
+        gap: 20px;
+    }
+    #banner3 {
+        padding: 0px 20px;
+    }
+    .banner-box3 {
+        width: 100%;
+    }
+    #newsletter .form {
+        width: 100%;
+    }
+    #newsletter {
+        padding: 40px 20px;
+    }
+}
+@media (max-width:380px) {
+    #feature {
+        gap: 10px;
+    }
+    h2 {
+        font-size: 45px;
+        line-height: 54px;
+        color: #222;
+    }
+    #feature-product .pro {
+       padding: 10px;
+    }
+    h2 {
+        font-size: 40px;
+        line-height: 44px;
+       
+    }
+    #banner {
+        padding: 10px;
+    }
+    #newsletter {
+        padding: 20px 15px;
+        text-align: center;
+    }
+    #newsletter input {
+        padding: 0  1em;
+        font-size: 12px;
+        
+    }
+    #newsletter button {
+        width: 40%;
+        text-align: center;
+    }
+    button.normal {
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px 20px;
+    }
+}
